@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add New Trip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <a href="/reset"><button>Logout</button></a>
+    <a href="/success"><button>Home</button></a>
+    {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li><small >{{ message }}</small></li>
+                {% endfor %}
+                </ul>
+    {% endif %}
+    <form action="/processtrip" method="POST">
+        {% csrf_token %}
+        <h1>Add a Trip</h1>
+        <p>Destination:</p>
+        <input type="text" name="destination">
+        <p>Description:</p>
+        <input type="text" name="description">
+        <p>Travel date from:</p>
+        <input type="date" name="startdate">
+        <p>Travel date to:</p>
+        <input type="date" name="enddate">
+        <br>
+        <br>
+        <input type="submit" name="submit" value="Add">
+        </form>
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+        ul{ 
+        list-style-type: none; 
+        }
+        .registration{
+            height: 400px;
+            width: 200px;  
+            display: inline-block; 
+            vertical-align: top;
+        }
+        .login{
+            height: 200px;
+            width:200px;
+            display: inline-block; 
+            vertical-align: top;
+            margin-left: 100px;
+        }
+        small{
+            color: red;
+        }
+        .first{
+            font-size: 80px;
+            text-align: center;
+        }
+        .the{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 class"first">WELCOME!</h1>
+    <div class="registration">
+        
+        <h1>Registration</h1>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li><small >{{ message }}</small></li>
+                {% endfor %}
+                </ul>
+        {% endif %}
+        <form action="/process" method="POST">
+            {% csrf_token %}
+            <p>Name: <input type="text" name="first_name"></p>
+            <p>User name: <input type="text" name="last_name"></p>
+        
+            <p>Password: <input type="password" name="password"></p>
+            <small class="the">Password should be at least 8 characters</small>
+            <p>Confirm password:  <input type="password" name="confps"></p>
+            <input type="submit" name="submit" value="Register">
+           
+        </form>
+    </div>
+    <div class="login">
+        <h1>Login</h1>
+      
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            <p>User name: <input type="text" name="last_name"></p>
+            <p>Password: <input type="password" name="password"></p>
+            <input type="submit" name="submit" value="Login">
+            
+        </form>
+    </div>
+    
+</body>
+</html>

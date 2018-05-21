@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Destination</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+        <a href="/reset"><button>Logout</button></a>
+        <a href="/success"><button>Home</button></a>
+        
+            
+            <h1> {{gt.destination}}</h1>
+            <h2>Planned by:{{kuku}}</h2>
+            <h2> Travel start date:{{gt.startdate}}</h2>
+            <h2>Travel end date:{{gt.enddate}}</h2>
+            <h3>Description: {{gt.description}}</h3>
+
+            <h1>Other users joining the trip: </h1>
+            {% for f in pypy %}
+            <h4>{{f.last_name}}</h4>
+            {% endfor %}
+
+        
+</body>
+</html>
